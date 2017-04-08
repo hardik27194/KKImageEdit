@@ -3,7 +3,7 @@ KKImageEdit。可对图片进行简单的编辑
 
 1、配置  
 
-![image](https://github.com/WUYUJIAN/KKImageEdit/blob/master/截图/配置.PNG) 
+![image](https://github.com/WUYUJIAN/KKImageEdit/blob/master/截图/配置.png) 
   
     
     
