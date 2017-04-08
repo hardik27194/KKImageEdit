@@ -1,0 +1,492 @@
+//
+//  EmoticonTool.m
+//
+//  Created by Mokhlas Hussein on 01/02/14.
+//  Copyright (c) 2014 iMokhles. All rights reserved.
+//  ImageTool Author wyj.
+//
+
+#import "WXEmoticonTool.h"
+#import "WXModalView.h"
+#import "CircleView.h"
+#import "UIView+Extension.h"
+#import "WXImageEditToolItem.h"
+#import "UIImage+Extension.h"
+
+@interface WXEmoticonView : UIView
+{
+    UIImageView *_imageView;
+    UIButton *_deleteButton;
+    CircleView *_circleView;
+    
+    CGFloat _scale;
+    CGFloat _arg;
+    
+    CGPoint _initialPoint;
+    CGFloat _initialArg;
+    CGFloat _initialScale;
+}
+
++ (void)setActiveEmoticonView:(WXEmoticonView*)view;
+
+- (id)initWithImage:(UIImage *)image;
+- (UIImageView*)imageView;
+- (void)setScale:(CGFloat)scale;
+
+@end
+
+
+@implementation WXEmoticonView
+
++ (void)setActiveEmoticonView:(WXEmoticonView*)view
+{
+    static WXEmoticonView *activeView = nil;
+    
+    if(view != activeView){
+        
+        [activeView setAvtive:NO];
+        activeView = view;
+        [activeView setAvtive:YES];
+        
+        [activeView.superview bringSubviewToFront:activeView];
+    }
+}
+
+- (id)initWithImage:(UIImage *)image
+{
+    self = [super initWithFrame:CGRectMake(0, 0, image.size.width+32, image.size.height+32)];
+    
+    if(self){
+        
+        _imageView = [[UIImageView alloc] initWithImage:image];
+        _imageView.layer.borderColor = [[UIColor blackColor] CGColor];
+        _imageView.layer.cornerRadius = 3;
+        _imageView.center = self.center;
+        [self addSubview:_imageView];
+        
+        _deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_deleteButton setImage:[UIImage imageNamed:@"btn_delete"] forState:UIControlStateNormal];
+        _deleteButton.frame = CGRectMake(0, 0, 32, 32);
+        _deleteButton.center = _imageView.frame.origin;
+        [_deleteButton addTarget:self action:@selector(pushedDeleteBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_deleteButton];
+        
+        _circleView = [[CircleView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        _circleView.center = CGPointMake(_imageView.width + _imageView.frame.origin.x, _imageView.height + _imageView.frame.origin.y);
+        _circleView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+        _circleView.radius = 0.7;
+        _circleView.color = [UIColor redColor];
+        _circleView.borderColor = [UIColor whiteColor];
+        _circleView.borderWidth = 2;
+        [self addSubview:_circleView];
+        
+        _scale = 1;
+        _arg = 0;
+        
+        [self initGestures];
+        
+    }
+    
+    return self;
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    UIView* view = [super hitTest:point withEvent:event];
+    if(view==self){
+        return nil;
+    }
+    return view;
+}
+
+- (UIImageView*)imageView
+{
+    return _imageView;
+}
+
+#pragma mark -- 初始化手势
+
+- (void)initGestures
+{
+    _imageView.userInteractionEnabled = YES;
+    
+    [_imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewDidTap:)]];
+    [_imageView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewDidPan:)]];
+    [_circleView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(circleViewDidPan:)]];
+}
+
+#pragma mark -- 删除
+
+- (void)pushedDeleteBtn:(id)sender
+{
+    WXEmoticonView *nextTarget = nil;
+    
+    const NSInteger index = [self.superview.subviews indexOfObject:self];
+    
+    for(NSInteger i = index + 1 ; i < self.superview.subviews.count ; ++i ){
+        UIView *view = [self.superview.subviews objectAtIndex:i];
+        if([view isKindOfClass:[WXEmoticonView class]]){
+            nextTarget = (WXEmoticonView*)view;
+            break;
+        }
+    }
+    
+    if(nextTarget==nil){
+        for(NSInteger i = index - 1; i >= 0; -- i){
+            UIView *view = [self.superview.subviews objectAtIndex:i];
+            if([view isKindOfClass:[WXEmoticonView class]]){
+                nextTarget = (WXEmoticonView*)view;
+                break;
+            }
+        }
+        
+    }
+    
+    [[self class] setActiveEmoticonView:nextTarget];
+    
+    [self removeFromSuperview];
+}
+
+#pragma mark -- 设置是否被选中
+
+- (void)setAvtive:(BOOL)active
+{
+    _deleteButton.hidden = !active;
+    _circleView.hidden = !active;
+    _imageView.layer.borderWidth = (active) ? 1/_scale : 0;
+}
+
+#pragma mark -- 设置缩放及旋转
+
+- (void)setScale:(CGFloat)scale
+{
+    _scale = scale ;
+    
+    self.transform = CGAffineTransformIdentity;
+    
+    _imageView.transform = CGAffineTransformMakeScale(_scale, _scale);
+    
+    CGRect rct = self.frame;
+    rct.origin.x += (rct.size.width - (_imageView.width + 32)) / 2;
+    rct.origin.y += (rct.size.height - (_imageView.height + 32)) / 2;
+    rct.size.width  = _imageView.width + 32;
+    rct.size.height = _imageView.height + 32;
+    self.frame = rct;
+    
+    _imageView.center = CGPointMake(rct.size.width/2, rct.size.height/2);
+    
+    self.transform = CGAffineTransformMakeRotation(_arg);
+    
+    _imageView.layer.borderWidth = 1/_scale;
+    _imageView.layer.cornerRadius = 3/_scale;
+}
+
+#pragma mark -- 手势响应
+
+- (void)viewDidTap:(UITapGestureRecognizer*)sender
+{
+    [[self class] setActiveEmoticonView:self];
+}
+
+- (void)viewDidPan:(UIPanGestureRecognizer*)sender
+{
+    [[self class] setActiveEmoticonView:self];
+    
+    CGPoint p = [sender translationInView:self.superview];
+    
+    if(sender.state == UIGestureRecognizerStateBegan){
+        _initialPoint = self.center;
+    }
+    
+    self.center = CGPointMake(_initialPoint.x + p.x, _initialPoint.y + p.y);
+}
+
+- (void)circleViewDidPan:(UIPanGestureRecognizer*)sender
+{
+    CGPoint p = [sender translationInView:self.superview];
+    
+    static CGFloat tmpR = 1;
+    static CGFloat tmpA = 0;
+    
+    if(sender.state == UIGestureRecognizerStateBegan){
+        
+        _initialPoint = [self.superview convertPoint:_circleView.center fromView:_circleView.superview];
+        
+        CGPoint p = CGPointMake(_initialPoint.x - self.center.x, _initialPoint.y - self.center.y);
+        tmpR = sqrt(p.x*p.x + p.y*p.y);
+        tmpA = atan2(p.y, p.x);
+        
+        _initialArg = _arg;
+        _initialScale = _scale;
+    }
+    
+    p = CGPointMake(_initialPoint.x + p.x - self.center.x, _initialPoint.y + p.y - self.center.y);
+    CGFloat R = sqrt(p.x*p.x + p.y*p.y);
+    CGFloat arg = atan2(p.y, p.x);
+    
+    _arg = _initialArg + arg - tmpA;
+    _scale = MAX(_initialScale * R / tmpR, 0.2);
+    
+    [self setScale:_scale];
+}
+
+@end
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+@interface WXEmoticonTool()<WXImageEditToolItemDelegate>
+{
+    UIImage *_originalImage;
+    
+    UIView *_workingView;
+    
+    UIScrollView *_menuScroll;
+    
+    UIScrollView *_popupMenuView ;
+    WXModalView *_modalPopupView;
+}
+@end
+
+
+@implementation WXEmoticonTool
+
+- (void)setupWithSuperView:(UIView *)view imageViewFrame:(CGRect)frame menuView:(UIView *)menuView image:(UIImage *)image
+{
+    _originalImage = image;
+    
+    _workingView = [[UIView alloc] initWithFrame:frame];
+    _workingView.clipsToBounds = YES;
+    [view addSubview:_workingView];
+    
+    _menuScroll = [[UIScrollView alloc] initWithFrame:menuView.bounds];
+    _menuScroll.backgroundColor = [UIColor blackColor];
+    _menuScroll.showsHorizontalScrollIndicator = NO;
+    [menuView addSubview:_menuScroll];
+    
+    [self setEmoticonMenu];
+    [self setPopupMenuView];
+    
+    _menuScroll.transform = CGAffineTransformMakeTranslation(0, view.height);
+    [UIView animateWithDuration:0.3 animations:^{
+        _menuScroll.transform = CGAffineTransformIdentity;
+    }];
+}
+
+- (void)cleanup
+{
+    [_workingView removeFromSuperview];
+    [_popupMenuView removeFromSuperview];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        _menuScroll.transform = CGAffineTransformMakeTranslation(0, _menuScroll.height);
+    }completion:^(BOOL finished) {
+        [_menuScroll removeFromSuperview];
+    }];
+    
+    [self dismissModalView];
+}
+
+#pragma mark -- 表情包文件夹
+
+- (NSString *)emotionResourcePath
+{
+    NSString *path = [[NSBundle mainBundle]bundlePath];
+    
+    path = [path stringByAppendingPathComponent:@"Emoticons"];
+    
+    return path ;
+}
+
+#pragma mark -- 生成最终图片
+
+- (void)genEmotionImageWithBlock:(void (^)(UIImage *))completionBlock
+{
+    [WXEmoticonView setActiveEmoticonView:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [self buildImage:_originalImage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock(image);
+        });
+    });
+}
+
+- (UIImage*)buildImage:(UIImage*)image
+{
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+    
+    [image drawAtPoint:CGPointZero];
+    
+    CGFloat scale = image.size.width / _workingView.width;
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), scale, scale);
+    [_workingView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *tmp = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return tmp;
+}
+
+#pragma mark -- 初始化菜单栏
+
+- (void)setEmoticonMenu
+{
+    CGFloat x = 0;
+    CGFloat W = 45;
+    CGFloat H = _menuScroll.height;
+    CGFloat padding = 0;
+    
+    int oneRowItemCount = 4;
+    CGFloat diff = _menuScroll.frame.size.width - oneRowItemCount * W;
+    diff <= 0 ? (diff = 0 ) : (diff) ;
+    padding = diff/(oneRowItemCount+1);
+    
+    NSString *emoticonPath = [self emotionResourcePath];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSError *error = nil;
+    NSArray *list = [fileManager contentsOfDirectoryAtPath:emoticonPath error:&error];
+    
+    oneRowItemCount = 0 ;
+    
+    for(NSString *path in list){
+        
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", emoticonPath, path];
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        
+        if(image){
+            
+            if(++oneRowItemCount > 3 ){
+                break ;
+            }
+            
+            WXImageEditToolItem *item = [[WXImageEditToolItem alloc]initWithFrame:CGRectMake(x + padding, 0, W, H)];
+            item.delegate = self ;
+            item.itemImage = [image aspectFit:CGSizeMake(45, 45)];
+            item.editInfo = @{@"filePath" : filePath} ;
+            item.hideTitle = YES ;
+            [_menuScroll addSubview:item];
+            
+            x += (W + padding);
+        }
+    }
+    
+    WXImageEditToolItem *item = [[WXImageEditToolItem alloc]initWithFrame:CGRectMake(x + padding, 0, W, H)];
+    item.itemImage = [UIImage imageNamed:@"showmore"];
+    item.editInfo = @{@"filePath" : @"showMore"} ;
+    item.delegate = self ;
+    item.hideTitle = YES ;
+    [_menuScroll addSubview:item];
+    
+    _menuScroll.contentSize = CGSizeMake(MAX(x, _menuScroll.frame.size.width+1), 0);
+}
+
+- (void)setPopupMenuView
+{
+    NSInteger width = [[UIScreen mainScreen]bounds].size.width ;
+    
+    _popupMenuView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, width*0.9, width*0.9)];
+    _popupMenuView.layer.cornerRadius = 5.0 ;
+    _popupMenuView.showsHorizontalScrollIndicator = false ;
+    _popupMenuView.showsVerticalScrollIndicator = false ;
+    _popupMenuView.backgroundColor = [UIColor grayColor];
+    
+    CGFloat W = 45 ;
+    CGFloat H = _menuScroll.height;
+    CGFloat wPadding = 0;
+    CGFloat hPadding = 30;
+    CGFloat x = 0 ;
+    CGFloat y = hPadding ;
+    
+    int oneRowItemCount = 4;
+    CGFloat diff = _popupMenuView.frame.size.width - oneRowItemCount * W;
+    diff <= 0 ? (diff = 0 ) : (diff) ;
+    wPadding = diff/(oneRowItemCount+1);
+    
+    NSString *emoticonPath = [self emotionResourcePath];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSError *error = nil;
+    NSArray *list = [fileManager contentsOfDirectoryAtPath:emoticonPath error:&error];
+    
+    int allCount = 0 ;
+    int row = 0 ;
+    
+    for(NSString *path in list){
+        
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", emoticonPath, path];
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        
+        if(allCount && (allCount % oneRowItemCount  == 0)){
+            y = ++row * H + hPadding;
+            x = 0 ;
+        }
+        allCount ++ ;
+        
+        WXImageEditToolItem *item = [[WXImageEditToolItem alloc]initWithFrame:CGRectMake(x + wPadding, y, W, H)];
+        item.delegate = self ;
+        item.itemImage = [image aspectFit:CGSizeMake(45, 45)];
+        item.editInfo = @{@"filePath" : filePath} ;
+        item.hideTitle = YES ;
+        [_popupMenuView addSubview:item];
+        
+        x += W+wPadding;
+    }
+    _popupMenuView.contentSize = CGSizeMake(0, MAX(y + H, _popupMenuView.frame.size.height + H));
+}
+
+#pragma mark -- WXImageEditToolItemDelegate
+
+- (void)imageEditItem:(WXImageEditToolItem *)item clickItemWithType:(WXImageEditType)editType editInfo:(NSDictionary *)editInfo
+{
+    NSString *filePath = editInfo[@"filePath"];
+    
+    if(![filePath isEqualToString:@"showMore"]){
+        
+        [self dismissModalView];
+        
+        WXEmoticonView *view = [[WXEmoticonView alloc] initWithImage:[UIImage imageWithContentsOfFile:filePath]];
+        CGFloat ratio = MIN( (0.5 * _workingView.width) / view.width, (0.5 * _workingView.height) / view.height);
+        [view setScale:ratio];
+        view.center = CGPointMake(_workingView.width/2, _workingView.height/2);
+        [_workingView addSubview:view];
+        
+        [WXEmoticonView setActiveEmoticonView:view];
+        
+        view.alpha = 0.2;
+        [UIView animateWithDuration:0.3 animations:^{
+            view.alpha = 1;
+        }];
+        
+    }else{
+        [self showModalViewWithView:_popupMenuView];
+    }
+}
+
+#pragma mark -- 弹框视图
+
+- (void)showModalViewWithView:(UIView *)view
+{
+    [self dismissModalView];
+    
+    _modalPopupView = [[WXModalView alloc]init];
+    [_modalPopupView startAnimateWithView:view];
+}
+
+- (void)dismissModalView
+{
+    [_modalPopupView dismiss];
+    _modalPopupView = nil ;
+}
+
+@end

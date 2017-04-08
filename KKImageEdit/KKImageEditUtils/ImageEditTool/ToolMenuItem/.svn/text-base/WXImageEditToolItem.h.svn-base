@@ -1,0 +1,32 @@
+//
+//  ImageEditToolItem.h
+//  WXPhoneManagerMaster
+//
+//  Created by wangxutech on 17/2/13.
+//  Copyright © 2017年 wangxutech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "ComnConstantsHeader.h"
+
+
+@protocol WXImageEditToolItemDelegate;
+
+@interface WXImageEditToolItem : UIView
+
+@property(nonatomic)NSDictionary *editInfo;
+@property(nonatomic,assign)WXImageEditType editType;
+@property(nonatomic)NSString *itemTitle;
+@property(nonatomic)UIImage *itemImage ;
+@property(nonatomic)id<WXImageEditToolItemDelegate>delegate ;
+@property(nonatomic)BOOL selected ;
+@property(nonatomic)BOOL hideTitle ;
+
+@property(nonatomic)UILabel *titleLabel ;
+@property(nonatomic)UIImageView *itemImageView;
+
+@end
+
+@protocol WXImageEditToolItemDelegate <NSObject>
+- (void)imageEditItem:(WXImageEditToolItem *)item clickItemWithType:(WXImageEditType)editType editInfo:(NSDictionary *)editInfo;
+@end

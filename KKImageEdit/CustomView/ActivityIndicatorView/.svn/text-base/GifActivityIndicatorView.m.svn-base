@@ -1,0 +1,94 @@
+//
+//  GifActivityIndicatorView.m
+//  Apowersoft IOS AirMore
+//
+//  Created by wangxutech on 16/7/8.
+//  Copyright © 2016年 Joni. All rights reserved.
+//
+
+#import "GifActivityIndicatorView.h"
+#import "UIImage+animatedGIF.h"
+#import "AppSetting.h"
+
+@implementation GifActivityIndicatorView
+{
+    UIImageView *_bgView;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if(self){
+        [self bulidAlertView];
+    }
+    
+    return self ;
+}
+
+- (void)dealloc
+{
+}
+
+- (void)bulidAlertView
+{
+    CGRect screen = [[UIScreen mainScreen]bounds];
+    
+    self.frame = CGRectMake(0,0,screen.size.width,screen.size.height);
+    
+    //模糊视图
+    _bgView = [[UIImageView alloc]initWithFrame:self.frame];
+    _bgView.backgroundColor = [UIColor clearColor];
+    
+    if (IS_IPHONE_6_PLUS) {
+        NSURL *gifURL =[[NSBundle mainBundle] URLForResource:@"loading@3x" withExtension:@"gif"];
+        _bgView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
+    }else{
+        NSURL *gifURL =[[NSBundle mainBundle] URLForResource:@"loading@2x" withExtension:@"gif"];
+        _bgView.image = [UIImage animatedImageWithAnimatedGIFURL:gifURL];
+    }
+    
+    [self addSubview:_bgView];
+    
+    _bgView.frame = CGRectMake(0, 0, 55, 55);
+    
+    _bgView.center = self.center;
+}
+
+- (void)startAnimateWithTimeOut:(NSTimeInterval)timeout
+{
+    [[[[UIApplication sharedApplication]delegate] window] addSubview:self];
+    
+    if(timeout != -1){
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:timeout];
+    }
+}
+
+- (void)dismiss
+{
+    [self removeFromSuperview];
+}
+
+- (void)resetViewWithOrientation:(NSInteger)toOrientation
+{
+    CGRect screen = [[UIScreen mainScreen]bounds];
+    if(toOrientation == UIInterfaceOrientationPortrait || toOrientation == UIInterfaceOrientationPortraitUpsideDown){
+        if(screen.size.width > screen.size.height){
+            CGFloat width = screen.size.width ;
+            screen.size.width = screen.size.height ;
+            screen.size.height = width ;
+        }
+    }else{
+        if(screen.size.width < screen.size.height){
+            CGFloat width = screen.size.width ;
+            screen.size.width = screen.size.height ;
+            screen.size.height = width ;
+        }
+    }
+    
+    self.frame = CGRectMake(0,0,screen.size.width,screen.size.height);
+    
+    //模糊视图
+    _bgView.frame = self.frame ;
+}
+
+@end

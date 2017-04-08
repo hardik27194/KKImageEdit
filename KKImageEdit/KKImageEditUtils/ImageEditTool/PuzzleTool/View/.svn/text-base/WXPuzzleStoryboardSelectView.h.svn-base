@@ -1,0 +1,25 @@
+//
+//  puzzleStoryboardSelectView.h
+//
+//  Created by wyj on 1/22/16.
+//  Copyright (c) 2016年 Raysharp. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol WXPuzzleStoryboardSelectViewDelegate;
+
+@interface WXPuzzleStoryboardSelectView : UIView
+{
+    
+}
+
+@property (nonatomic, assign) id<WXPuzzleStoryboardSelectViewDelegate> delegateSelect;
+@property (nonatomic, assign) NSInteger picCount;
+@property (nonatomic, assign) NSInteger selectIndex;
+
+@end
+
+@protocol WXPuzzleStoryboardSelectViewDelegate <NSObject>
+- (void)didSelectedStoryboardPicCount:(NSInteger)picCount styleIndex:(NSInteger)styleIndex;
+@end

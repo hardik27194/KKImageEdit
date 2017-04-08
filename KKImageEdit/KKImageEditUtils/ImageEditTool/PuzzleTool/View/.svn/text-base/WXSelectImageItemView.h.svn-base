@@ -1,0 +1,25 @@
+//
+//  WXSelectImageItemView.h
+//  WXPhoneManagerMaster
+//
+//  Created by wangxutech on 17/2/17.
+//  Copyright © 2017年 wangxutech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol WXSelectImageItemViewDelegate;
+
+@interface WXSelectImageItemView : UIView
+
+@property(nonatomic,weak)id<WXSelectImageItemViewDelegate>delegate;
+@property(nonatomic,assign)NSInteger imageIndex ;
+@property(nonatomic)UIImage *image ;
+
+@end
+
+@protocol WXSelectImageItemViewDelegate <NSObject>
+
+- (void)removeImageWithIndex:(NSInteger)index;
+
+@end

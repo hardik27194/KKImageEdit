@@ -1,0 +1,28 @@
+//
+//  WXImageRotateTool.h
+//  WXCommonTools
+//
+//  Created by wangxutech on 17/2/14.
+//  Copyright © 2017年 fingerfinger. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger , WXRoteImageType){
+    WXRoteTypeRoundRotate,
+    WXRoteTypeFlipHorizonta,
+    WXRoteTypeFlipVertical
+};
+
+@interface WXImageRotateTool : NSObject
+
+@property(nonatomic)NSArray *rotateTypeArray;
+
+- (void)setupWithSuperView:(UIView *)view imageViewFrame:(CGRect)frame menuView:(UIView *)menuView image:(UIImage *)image;
+
+- (void)cleanup;
+
+- (UIImage*)buildImage:(UIImage*)image;
+
+@end

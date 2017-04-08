@@ -9,10 +9,52 @@
 /* Begin PBXBuildFile section */
 		51FECC261E993508006B6D42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC251E993508006B6D42 /* main.m */; };
 		51FECC291E993508006B6D42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC281E993508006B6D42 /* AppDelegate.m */; };
-		51FECC2C1E993508006B6D42 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC2B1E993508006B6D42 /* ViewController.m */; };
-		51FECC2F1E993508006B6D42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51FECC2D1E993508006B6D42 /* Main.storyboard */; };
 		51FECC311E993508006B6D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FECC301E993508006B6D42 /* Assets.xcassets */; };
 		51FECC341E993508006B6D42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51FECC321E993508006B6D42 /* LaunchScreen.storyboard */; };
+		51FECCFD1E99360B006B6D42 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC3D1E99360B006B6D42 /* UIImage+Extension.m */; };
+		51FECCFE1E99360B006B6D42 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC3F1E99360B006B6D42 /* UIView+Extension.m */; };
+		51FECCFF1E99360B006B6D42 /* CommDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC421E99360B006B6D42 /* CommDevice.m */; };
+		51FECD001E99360B006B6D42 /* LoadingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC4B1E99360B006B6D42 /* LoadingIndicatorView.m */; };
+		51FECD011E99360B006B6D42 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC4E1E99360B006B6D42 /* CircleView.m */; };
+		51FECD021E99360B006B6D42 /* KKModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC511E99360B006B6D42 /* KKModalView.m */; };
+		51FECD041E99360B006B6D42 /* StickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC571E99360B006B6D42 /* StickyHeaderFlowLayout.m */; };
+		51FECD051E99360B006B6D42 /* KKImageEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC5B1E99360B006B6D42 /* KKImageEditController.m */; };
+		51FECD061E99360B006B6D42 /* KKImageEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FECC5C1E99360B006B6D42 /* KKImageEditController.xib */; };
+		51FECD071E99360B006B6D42 /* KKBlurTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC601E99360B006B6D42 /* KKBlurTool.m */; };
+		51FECD081E99360B006B6D42 /* KKImageClipTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC631E99360B006B6D42 /* KKImageClipTool.m */; };
+		51FECD091E99360B006B6D42 /* KKImageDrawTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC661E99360B006B6D42 /* KKImageDrawTool.m */; };
+		51FECD0A1E99360B006B6D42 /* KKBloomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC6A1E99360B006B6D42 /* KKBloomEffect.m */; };
+		51FECD0B1E99360B006B6D42 /* KKGloomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC6C1E99360B006B6D42 /* KKGloomEffect.m */; };
+		51FECD0C1E99360B006B6D42 /* KKHighlightShadowEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC6E1E99360B006B6D42 /* KKHighlightShadowEffect.m */; };
+		51FECD0D1E99360B006B6D42 /* KKHueEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC701E99360B006B6D42 /* KKHueEffect.m */; };
+		51FECD0E1E99360B006B6D42 /* KKPixellateEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC721E99360B006B6D42 /* KKPixellateEffect.m */; };
+		51FECD0F1E99360B006B6D42 /* KKPosterizeEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC741E99360B006B6D42 /* KKPosterizeEffect.m */; };
+		51FECD101E99360B006B6D42 /* KKSpotEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC761E99360B006B6D42 /* KKSpotEffect.m */; };
+		51FECD111E99360B006B6D42 /* KKVignetteEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC781E99360B006B6D42 /* KKVignetteEffect.m */; };
+		51FECD121E99360B006B6D42 /* KKEffectBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC7A1E99360B006B6D42 /* KKEffectBase.m */; };
+		51FECD131E99360B006B6D42 /* KKImageEffectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECC7C1E99360B006B6D42 /* KKImageEffectTool.m */; };
+		51FECD4F1E99360B006B6D42 /* KKEmoticonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCBB1E99360B006B6D42 /* KKEmoticonTool.m */; };
+		51FECD501E99360B006B6D42 /* KKImageFilterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCBE1E99360B006B6D42 /* KKImageFilterTool.m */; };
+		51FECD511E99360B006B6D42 /* KKImageMosaicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCC31E99360B006B6D42 /* KKImageMosaicTool.m */; };
+		51FECD521E99360B006B6D42 /* KKPuzzImageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCC71E99360B006B6D42 /* KKPuzzImageSelectController.m */; };
+		51FECD531E99360B006B6D42 /* KKPuzzImageSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FECCC81E99360B006B6D42 /* KKPuzzImageSelectController.xib */; };
+		51FECD541E99360B006B6D42 /* KKPuzzleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCCA1E99360B006B6D42 /* KKPuzzleTool.m */; };
+		51FECD6D1E99360B006B6D42 /* KKPuzzleEditImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCE71E99360B006B6D42 /* KKPuzzleEditImageView.m */; };
+		51FECD6E1E99360B006B6D42 /* KKPuzzleStoryboardSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCE91E99360B006B6D42 /* KKPuzzleStoryboardSelectView.m */; };
+		51FECD6F1E99360B006B6D42 /* KKSelectImageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCEB1E99360B006B6D42 /* KKSelectImageItemView.m */; };
+		51FECD701E99360B006B6D42 /* KKImageRotateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCEE1E99360B006B6D42 /* KKImageRotateTool.m */; };
+		51FECD711E99360B006B6D42 /* ColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCF11E99360B006B6D42 /* ColorPickerView.m */; };
+		51FECD721E99360B006B6D42 /* FontPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCF31E99360B006B6D42 /* FontPickerView.m */; };
+		51FECD731E99360B006B6D42 /* KKImageTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCF51E99360B006B6D42 /* KKImageTextTool.m */; };
+		51FECD741E99360B006B6D42 /* TextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCF71E99360B006B6D42 /* TextEditView.m */; };
+		51FECD751E99360B006B6D42 /* KKImageEditToolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECCFA1E99360B006B6D42 /* KKImageEditToolItem.m */; };
+		51FECD791E99371E006B6D42 /* KKImageCollectionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECD771E99371E006B6D42 /* KKImageCollectionCellView.m */; };
+		51FECD7A1E99371E006B6D42 /* KKImageCollectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FECD781E99371E006B6D42 /* KKImageCollectionCellView.xib */; };
+		51FECD7D1E993741006B6D42 /* KKPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECD7C1E993741006B6D42 /* KKPhotoManager.m */; };
+		51FECD811E993795006B6D42 /* KKNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FECD801E993795006B6D42 /* KKNavViewController.m */; };
+		51FECD831E9938C6006B6D42 /* editImage.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 51FECD821E9938C6006B6D42 /* editImage.JPG */; };
+		51FECD851E9939EE006B6D42 /* Emoticons in Resources */ = {isa = PBXBuildFile; fileRef = 51FECD841E9939EE006B6D42 /* Emoticons */; };
+		51FECD871E9939FF006B6D42 /* StoryboardPlist in Resources */ = {isa = PBXBuildFile; fileRef = 51FECD861E9939FF006B6D42 /* StoryboardPlist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +62,97 @@
 		51FECC251E993508006B6D42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		51FECC271E993508006B6D42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		51FECC281E993508006B6D42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		51FECC2A1E993508006B6D42 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		51FECC2B1E993508006B6D42 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		51FECC2E1E993508006B6D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51FECC301E993508006B6D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51FECC331E993508006B6D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51FECC351E993508006B6D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51FECC3C1E99360B006B6D42 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		51FECC3D1E99360B006B6D42 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		51FECC3E1E99360B006B6D42 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		51FECC3F1E99360B006B6D42 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		51FECC411E99360B006B6D42 /* CommDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommDevice.h; sourceTree = "<group>"; };
+		51FECC421E99360B006B6D42 /* CommDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommDevice.m; sourceTree = "<group>"; };
+		51FECC441E99360B006B6D42 /* if_arp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_arp.h; sourceTree = "<group>"; };
+		51FECC451E99360B006B6D42 /* if_ether.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_ether.h; sourceTree = "<group>"; };
+		51FECC461E99360B006B6D42 /* if_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_types.h; sourceTree = "<group>"; };
+		51FECC471E99360B006B6D42 /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = route.h; sourceTree = "<group>"; };
+		51FECC4A1E99360B006B6D42 /* LoadingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingIndicatorView.h; sourceTree = "<group>"; };
+		51FECC4B1E99360B006B6D42 /* LoadingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingIndicatorView.m; sourceTree = "<group>"; };
+		51FECC4D1E99360B006B6D42 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		51FECC4E1E99360B006B6D42 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		51FECC501E99360B006B6D42 /* KKModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKModalView.h; sourceTree = "<group>"; };
+		51FECC511E99360B006B6D42 /* KKModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKModalView.m; sourceTree = "<group>"; };
+		51FECC561E99360B006B6D42 /* StickyHeaderFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderFlowLayout.h; sourceTree = "<group>"; };
+		51FECC571E99360B006B6D42 /* StickyHeaderFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderFlowLayout.m; sourceTree = "<group>"; };
+		51FECC5A1E99360B006B6D42 /* KKImageEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageEditController.h; sourceTree = "<group>"; };
+		51FECC5B1E99360B006B6D42 /* KKImageEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageEditController.m; sourceTree = "<group>"; };
+		51FECC5C1E99360B006B6D42 /* KKImageEditController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KKImageEditController.xib; sourceTree = "<group>"; };
+		51FECC5F1E99360B006B6D42 /* KKBlurTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBlurTool.h; sourceTree = "<group>"; };
+		51FECC601E99360B006B6D42 /* KKBlurTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBlurTool.m; sourceTree = "<group>"; };
+		51FECC621E99360B006B6D42 /* KKImageClipTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageClipTool.h; sourceTree = "<group>"; };
+		51FECC631E99360B006B6D42 /* KKImageClipTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageClipTool.m; sourceTree = "<group>"; };
+		51FECC651E99360B006B6D42 /* KKImageDrawTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageDrawTool.h; sourceTree = "<group>"; };
+		51FECC661E99360B006B6D42 /* KKImageDrawTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageDrawTool.m; sourceTree = "<group>"; };
+		51FECC691E99360B006B6D42 /* KKBloomEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBloomEffect.h; sourceTree = "<group>"; };
+		51FECC6A1E99360B006B6D42 /* KKBloomEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBloomEffect.m; sourceTree = "<group>"; };
+		51FECC6B1E99360B006B6D42 /* KKGloomEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGloomEffect.h; sourceTree = "<group>"; };
+		51FECC6C1E99360B006B6D42 /* KKGloomEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGloomEffect.m; sourceTree = "<group>"; };
+		51FECC6D1E99360B006B6D42 /* KKHighlightShadowEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKHighlightShadowEffect.h; sourceTree = "<group>"; };
+		51FECC6E1E99360B006B6D42 /* KKHighlightShadowEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKHighlightShadowEffect.m; sourceTree = "<group>"; };
+		51FECC6F1E99360B006B6D42 /* KKHueEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKHueEffect.h; sourceTree = "<group>"; };
+		51FECC701E99360B006B6D42 /* KKHueEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKHueEffect.m; sourceTree = "<group>"; };
+		51FECC711E99360B006B6D42 /* KKPixellateEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPixellateEffect.h; sourceTree = "<group>"; };
+		51FECC721E99360B006B6D42 /* KKPixellateEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPixellateEffect.m; sourceTree = "<group>"; };
+		51FECC731E99360B006B6D42 /* KKPosterizeEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPosterizeEffect.h; sourceTree = "<group>"; };
+		51FECC741E99360B006B6D42 /* KKPosterizeEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPosterizeEffect.m; sourceTree = "<group>"; };
+		51FECC751E99360B006B6D42 /* KKSpotEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSpotEffect.h; sourceTree = "<group>"; };
+		51FECC761E99360B006B6D42 /* KKSpotEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSpotEffect.m; sourceTree = "<group>"; };
+		51FECC771E99360B006B6D42 /* KKVignetteEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKVignetteEffect.h; sourceTree = "<group>"; };
+		51FECC781E99360B006B6D42 /* KKVignetteEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKVignetteEffect.m; sourceTree = "<group>"; };
+		51FECC791E99360B006B6D42 /* KKEffectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKEffectBase.h; sourceTree = "<group>"; };
+		51FECC7A1E99360B006B6D42 /* KKEffectBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKEffectBase.m; sourceTree = "<group>"; };
+		51FECC7B1E99360B006B6D42 /* KKImageEffectTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageEffectTool.h; sourceTree = "<group>"; };
+		51FECC7C1E99360B006B6D42 /* KKImageEffectTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageEffectTool.m; sourceTree = "<group>"; };
+		51FECCBA1E99360B006B6D42 /* KKEmoticonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKEmoticonTool.h; sourceTree = "<group>"; };
+		51FECCBB1E99360B006B6D42 /* KKEmoticonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKEmoticonTool.m; sourceTree = "<group>"; };
+		51FECCBD1E99360B006B6D42 /* KKImageFilterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageFilterTool.h; sourceTree = "<group>"; };
+		51FECCBE1E99360B006B6D42 /* KKImageFilterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageFilterTool.m; sourceTree = "<group>"; };
+		51FECCBF1E99360B006B6D42 /* KKImageEditHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageEditHeader.h; sourceTree = "<group>"; };
+		51FECCC01E99360B006B6D42 /* KKImageEditTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageEditTool.h; sourceTree = "<group>"; };
+		51FECCC21E99360B006B6D42 /* KKImageMosaicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageMosaicTool.h; sourceTree = "<group>"; };
+		51FECCC31E99360B006B6D42 /* KKImageMosaicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageMosaicTool.m; sourceTree = "<group>"; };
+		51FECCC61E99360B006B6D42 /* KKPuzzImageSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPuzzImageSelectController.h; sourceTree = "<group>"; };
+		51FECCC71E99360B006B6D42 /* KKPuzzImageSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPuzzImageSelectController.m; sourceTree = "<group>"; };
+		51FECCC81E99360B006B6D42 /* KKPuzzImageSelectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KKPuzzImageSelectController.xib; sourceTree = "<group>"; };
+		51FECCC91E99360B006B6D42 /* KKPuzzleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPuzzleTool.h; sourceTree = "<group>"; };
+		51FECCCA1E99360B006B6D42 /* KKPuzzleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPuzzleTool.m; sourceTree = "<group>"; };
+		51FECCE61E99360B006B6D42 /* KKPuzzleEditImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPuzzleEditImageView.h; sourceTree = "<group>"; };
+		51FECCE71E99360B006B6D42 /* KKPuzzleEditImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPuzzleEditImageView.m; sourceTree = "<group>"; };
+		51FECCE81E99360B006B6D42 /* KKPuzzleStoryboardSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPuzzleStoryboardSelectView.h; sourceTree = "<group>"; };
+		51FECCE91E99360B006B6D42 /* KKPuzzleStoryboardSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPuzzleStoryboardSelectView.m; sourceTree = "<group>"; };
+		51FECCEA1E99360B006B6D42 /* KKSelectImageItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSelectImageItemView.h; sourceTree = "<group>"; };
+		51FECCEB1E99360B006B6D42 /* KKSelectImageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSelectImageItemView.m; sourceTree = "<group>"; };
+		51FECCED1E99360B006B6D42 /* KKImageRotateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageRotateTool.h; sourceTree = "<group>"; };
+		51FECCEE1E99360B006B6D42 /* KKImageRotateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageRotateTool.m; sourceTree = "<group>"; };
+		51FECCF01E99360B006B6D42 /* ColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerView.h; sourceTree = "<group>"; };
+		51FECCF11E99360B006B6D42 /* ColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerView.m; sourceTree = "<group>"; };
+		51FECCF21E99360B006B6D42 /* FontPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontPickerView.h; sourceTree = "<group>"; };
+		51FECCF31E99360B006B6D42 /* FontPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontPickerView.m; sourceTree = "<group>"; };
+		51FECCF41E99360B006B6D42 /* KKImageTextTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageTextTool.h; sourceTree = "<group>"; };
+		51FECCF51E99360B006B6D42 /* KKImageTextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageTextTool.m; sourceTree = "<group>"; };
+		51FECCF61E99360B006B6D42 /* TextEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditView.h; sourceTree = "<group>"; };
+		51FECCF71E99360B006B6D42 /* TextEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditView.m; sourceTree = "<group>"; };
+		51FECCF91E99360B006B6D42 /* KKImageEditToolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageEditToolItem.h; sourceTree = "<group>"; };
+		51FECCFA1E99360B006B6D42 /* KKImageEditToolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageEditToolItem.m; sourceTree = "<group>"; };
+		51FECD761E99371E006B6D42 /* KKImageCollectionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKImageCollectionCellView.h; sourceTree = "<group>"; };
+		51FECD771E99371E006B6D42 /* KKImageCollectionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKImageCollectionCellView.m; sourceTree = "<group>"; };
+		51FECD781E99371E006B6D42 /* KKImageCollectionCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KKImageCollectionCellView.xib; sourceTree = "<group>"; };
+		51FECD7B1E993741006B6D42 /* KKPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKPhotoManager.h; sourceTree = "<group>"; };
+		51FECD7C1E993741006B6D42 /* KKPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKPhotoManager.m; sourceTree = "<group>"; };
+		51FECD7F1E993795006B6D42 /* KKNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKNavViewController.h; sourceTree = "<group>"; };
+		51FECD801E993795006B6D42 /* KKNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKNavViewController.m; sourceTree = "<group>"; };
+		51FECD821E9938C6006B6D42 /* editImage.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editImage.JPG; sourceTree = "<group>"; };
+		51FECD841E9939EE006B6D42 /* Emoticons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Emoticons; sourceTree = "<group>"; };
+		51FECD861E9939FF006B6D42 /* StoryboardPlist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = StoryboardPlist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +185,12 @@
 		51FECC231E993508006B6D42 /* KKImageEdit */ = {
 			isa = PBXGroup;
 			children = (
+				51FECC3B1E99360B006B6D42 /* Category */,
+				51FECC401E99360B006B6D42 /* CommDevice */,
+				51FECC481E99360B006B6D42 /* CustomView */,
+				51FECC581E99360B006B6D42 /* KKImageEditUtils */,
 				51FECC271E993508006B6D42 /* AppDelegate.h */,
 				51FECC281E993508006B6D42 /* AppDelegate.m */,
-				51FECC2A1E993508006B6D42 /* ViewController.h */,
-				51FECC2B1E993508006B6D42 /* ViewController.m */,
-				51FECC2D1E993508006B6D42 /* Main.storyboard */,
 				51FECC301E993508006B6D42 /* Assets.xcassets */,
 				51FECC321E993508006B6D42 /* LaunchScreen.storyboard */,
 				51FECC351E993508006B6D42 /* Info.plist */,
@@ -74,9 +202,325 @@
 		51FECC241E993508006B6D42 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51FECD821E9938C6006B6D42 /* editImage.JPG */,
 				51FECC251E993508006B6D42 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51FECC3B1E99360B006B6D42 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC3C1E99360B006B6D42 /* UIImage+Extension.h */,
+				51FECC3D1E99360B006B6D42 /* UIImage+Extension.m */,
+				51FECC3E1E99360B006B6D42 /* UIView+Extension.h */,
+				51FECC3F1E99360B006B6D42 /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		51FECC401E99360B006B6D42 /* CommDevice */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC411E99360B006B6D42 /* CommDevice.h */,
+				51FECC421E99360B006B6D42 /* CommDevice.m */,
+				51FECC431E99360B006B6D42 /* Network */,
+			);
+			path = CommDevice;
+			sourceTree = "<group>";
+		};
+		51FECC431E99360B006B6D42 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC441E99360B006B6D42 /* if_arp.h */,
+				51FECC451E99360B006B6D42 /* if_ether.h */,
+				51FECC461E99360B006B6D42 /* if_types.h */,
+				51FECC471E99360B006B6D42 /* route.h */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		51FECC481E99360B006B6D42 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				51FECD7E1E993795006B6D42 /* KKNavViewController */,
+				51FECC491E99360B006B6D42 /* ActivityIndicatorView */,
+				51FECC4C1E99360B006B6D42 /* CircleView */,
+				51FECC4F1E99360B006B6D42 /* KKModalView */,
+				51FECC551E99360B006B6D42 /* StickyHeaderFlowLayout */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		51FECC491E99360B006B6D42 /* ActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC4A1E99360B006B6D42 /* LoadingIndicatorView.h */,
+				51FECC4B1E99360B006B6D42 /* LoadingIndicatorView.m */,
+			);
+			path = ActivityIndicatorView;
+			sourceTree = "<group>";
+		};
+		51FECC4C1E99360B006B6D42 /* CircleView */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC4D1E99360B006B6D42 /* CircleView.h */,
+				51FECC4E1E99360B006B6D42 /* CircleView.m */,
+			);
+			path = CircleView;
+			sourceTree = "<group>";
+		};
+		51FECC4F1E99360B006B6D42 /* KKModalView */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC501E99360B006B6D42 /* KKModalView.h */,
+				51FECC511E99360B006B6D42 /* KKModalView.m */,
+			);
+			path = KKModalView;
+			sourceTree = "<group>";
+		};
+		51FECC551E99360B006B6D42 /* StickyHeaderFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC561E99360B006B6D42 /* StickyHeaderFlowLayout.h */,
+				51FECC571E99360B006B6D42 /* StickyHeaderFlowLayout.m */,
+			);
+			path = StickyHeaderFlowLayout;
+			sourceTree = "<group>";
+		};
+		51FECC581E99360B006B6D42 /* KKImageEditUtils */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC591E99360B006B6D42 /* Controller */,
+				51FECC5D1E99360B006B6D42 /* ImageEditTool */,
+				51FECCFB1E99360B006B6D42 /* Modal */,
+				51FECCFC1E99360B006B6D42 /* View */,
+			);
+			path = KKImageEditUtils;
+			sourceTree = "<group>";
+		};
+		51FECC591E99360B006B6D42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC5A1E99360B006B6D42 /* KKImageEditController.h */,
+				51FECC5B1E99360B006B6D42 /* KKImageEditController.m */,
+				51FECC5C1E99360B006B6D42 /* KKImageEditController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FECC5D1E99360B006B6D42 /* ImageEditTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC5E1E99360B006B6D42 /* BlurTool */,
+				51FECC611E99360B006B6D42 /* ClipTool */,
+				51FECC641E99360B006B6D42 /* DrawTool */,
+				51FECC671E99360B006B6D42 /* EffectTool */,
+				51FECC7D1E99360B006B6D42 /* EmoticonTool */,
+				51FECCBC1E99360B006B6D42 /* FilterTool */,
+				51FECCBF1E99360B006B6D42 /* KKImageEditHeader.h */,
+				51FECCC01E99360B006B6D42 /* KKImageEditTool.h */,
+				51FECCC11E99360B006B6D42 /* MosaicTool */,
+				51FECCC41E99360B006B6D42 /* PuzzleTool */,
+				51FECCEC1E99360B006B6D42 /* RotateTool */,
+				51FECCEF1E99360B006B6D42 /* TextTool */,
+				51FECCF81E99360B006B6D42 /* ToolMenuItem */,
+			);
+			path = ImageEditTool;
+			sourceTree = "<group>";
+		};
+		51FECC5E1E99360B006B6D42 /* BlurTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC5F1E99360B006B6D42 /* KKBlurTool.h */,
+				51FECC601E99360B006B6D42 /* KKBlurTool.m */,
+			);
+			path = BlurTool;
+			sourceTree = "<group>";
+		};
+		51FECC611E99360B006B6D42 /* ClipTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC621E99360B006B6D42 /* KKImageClipTool.h */,
+				51FECC631E99360B006B6D42 /* KKImageClipTool.m */,
+			);
+			path = ClipTool;
+			sourceTree = "<group>";
+		};
+		51FECC641E99360B006B6D42 /* DrawTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC651E99360B006B6D42 /* KKImageDrawTool.h */,
+				51FECC661E99360B006B6D42 /* KKImageDrawTool.m */,
+			);
+			path = DrawTool;
+			sourceTree = "<group>";
+		};
+		51FECC671E99360B006B6D42 /* EffectTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC681E99360B006B6D42 /* effect */,
+				51FECC791E99360B006B6D42 /* KKEffectBase.h */,
+				51FECC7A1E99360B006B6D42 /* KKEffectBase.m */,
+				51FECC7B1E99360B006B6D42 /* KKImageEffectTool.h */,
+				51FECC7C1E99360B006B6D42 /* KKImageEffectTool.m */,
+			);
+			path = EffectTool;
+			sourceTree = "<group>";
+		};
+		51FECC681E99360B006B6D42 /* effect */ = {
+			isa = PBXGroup;
+			children = (
+				51FECC691E99360B006B6D42 /* KKBloomEffect.h */,
+				51FECC6A1E99360B006B6D42 /* KKBloomEffect.m */,
+				51FECC6B1E99360B006B6D42 /* KKGloomEffect.h */,
+				51FECC6C1E99360B006B6D42 /* KKGloomEffect.m */,
+				51FECC6D1E99360B006B6D42 /* KKHighlightShadowEffect.h */,
+				51FECC6E1E99360B006B6D42 /* KKHighlightShadowEffect.m */,
+				51FECC6F1E99360B006B6D42 /* KKHueEffect.h */,
+				51FECC701E99360B006B6D42 /* KKHueEffect.m */,
+				51FECC711E99360B006B6D42 /* KKPixellateEffect.h */,
+				51FECC721E99360B006B6D42 /* KKPixellateEffect.m */,
+				51FECC731E99360B006B6D42 /* KKPosterizeEffect.h */,
+				51FECC741E99360B006B6D42 /* KKPosterizeEffect.m */,
+				51FECC751E99360B006B6D42 /* KKSpotEffect.h */,
+				51FECC761E99360B006B6D42 /* KKSpotEffect.m */,
+				51FECC771E99360B006B6D42 /* KKVignetteEffect.h */,
+				51FECC781E99360B006B6D42 /* KKVignetteEffect.m */,
+			);
+			path = effect;
+			sourceTree = "<group>";
+		};
+		51FECC7D1E99360B006B6D42 /* EmoticonTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECD841E9939EE006B6D42 /* Emoticons */,
+				51FECCBA1E99360B006B6D42 /* KKEmoticonTool.h */,
+				51FECCBB1E99360B006B6D42 /* KKEmoticonTool.m */,
+			);
+			path = EmoticonTool;
+			sourceTree = "<group>";
+		};
+		51FECCBC1E99360B006B6D42 /* FilterTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECCBD1E99360B006B6D42 /* KKImageFilterTool.h */,
+				51FECCBE1E99360B006B6D42 /* KKImageFilterTool.m */,
+			);
+			path = FilterTool;
+			sourceTree = "<group>";
+		};
+		51FECCC11E99360B006B6D42 /* MosaicTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECCC21E99360B006B6D42 /* KKImageMosaicTool.h */,
+				51FECCC31E99360B006B6D42 /* KKImageMosaicTool.m */,
+			);
+			path = MosaicTool;
+			sourceTree = "<group>";
+		};
+		51FECCC41E99360B006B6D42 /* PuzzleTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECD861E9939FF006B6D42 /* StoryboardPlist */,
+				51FECCC51E99360B006B6D42 /* Controller */,
+				51FECCC91E99360B006B6D42 /* KKPuzzleTool.h */,
+				51FECCCA1E99360B006B6D42 /* KKPuzzleTool.m */,
+				51FECCCB1E99360B006B6D42 /* Modal */,
+				51FECCE51E99360B006B6D42 /* View */,
+			);
+			path = PuzzleTool;
+			sourceTree = "<group>";
+		};
+		51FECCC51E99360B006B6D42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FECCC61E99360B006B6D42 /* KKPuzzImageSelectController.h */,
+				51FECCC71E99360B006B6D42 /* KKPuzzImageSelectController.m */,
+				51FECCC81E99360B006B6D42 /* KKPuzzImageSelectController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FECCCB1E99360B006B6D42 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		51FECCE51E99360B006B6D42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51FECD761E99371E006B6D42 /* KKImageCollectionCellView.h */,
+				51FECD771E99371E006B6D42 /* KKImageCollectionCellView.m */,
+				51FECD781E99371E006B6D42 /* KKImageCollectionCellView.xib */,
+				51FECCE61E99360B006B6D42 /* KKPuzzleEditImageView.h */,
+				51FECCE71E99360B006B6D42 /* KKPuzzleEditImageView.m */,
+				51FECCE81E99360B006B6D42 /* KKPuzzleStoryboardSelectView.h */,
+				51FECCE91E99360B006B6D42 /* KKPuzzleStoryboardSelectView.m */,
+				51FECCEA1E99360B006B6D42 /* KKSelectImageItemView.h */,
+				51FECCEB1E99360B006B6D42 /* KKSelectImageItemView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FECCEC1E99360B006B6D42 /* RotateTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECCED1E99360B006B6D42 /* KKImageRotateTool.h */,
+				51FECCEE1E99360B006B6D42 /* KKImageRotateTool.m */,
+			);
+			path = RotateTool;
+			sourceTree = "<group>";
+		};
+		51FECCEF1E99360B006B6D42 /* TextTool */ = {
+			isa = PBXGroup;
+			children = (
+				51FECCF01E99360B006B6D42 /* ColorPickerView.h */,
+				51FECCF11E99360B006B6D42 /* ColorPickerView.m */,
+				51FECCF21E99360B006B6D42 /* FontPickerView.h */,
+				51FECCF31E99360B006B6D42 /* FontPickerView.m */,
+				51FECCF41E99360B006B6D42 /* KKImageTextTool.h */,
+				51FECCF51E99360B006B6D42 /* KKImageTextTool.m */,
+				51FECCF61E99360B006B6D42 /* TextEditView.h */,
+				51FECCF71E99360B006B6D42 /* TextEditView.m */,
+			);
+			path = TextTool;
+			sourceTree = "<group>";
+		};
+		51FECCF81E99360B006B6D42 /* ToolMenuItem */ = {
+			isa = PBXGroup;
+			children = (
+				51FECCF91E99360B006B6D42 /* KKImageEditToolItem.h */,
+				51FECCFA1E99360B006B6D42 /* KKImageEditToolItem.m */,
+			);
+			path = ToolMenuItem;
+			sourceTree = "<group>";
+		};
+		51FECCFB1E99360B006B6D42 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				51FECD7B1E993741006B6D42 /* KKPhotoManager.h */,
+				51FECD7C1E993741006B6D42 /* KKPhotoManager.m */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		51FECCFC1E99360B006B6D42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FECD7E1E993795006B6D42 /* KKNavViewController */ = {
+			isa = PBXGroup;
+			children = (
+				51FECD7F1E993795006B6D42 /* KKNavViewController.h */,
+				51FECD801E993795006B6D42 /* KKNavViewController.m */,
+			);
+			path = KKNavViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +582,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FECD061E99360B006B6D42 /* KKImageEditController.xib in Resources */,
 				51FECC341E993508006B6D42 /* LaunchScreen.storyboard in Resources */,
+				51FECD851E9939EE006B6D42 /* Emoticons in Resources */,
+				51FECD831E9938C6006B6D42 /* editImage.JPG in Resources */,
+				51FECD871E9939FF006B6D42 /* StoryboardPlist in Resources */,
+				51FECD7A1E99371E006B6D42 /* KKImageCollectionCellView.xib in Resources */,
 				51FECC311E993508006B6D42 /* Assets.xcassets in Resources */,
-				51FECC2F1E993508006B6D42 /* Main.storyboard in Resources */,
+				51FECD531E99360B006B6D42 /* KKPuzzImageSelectController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,23 +600,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51FECC2C1E993508006B6D42 /* ViewController.m in Sources */,
+				51FECD751E99360B006B6D42 /* KKImageEditToolItem.m in Sources */,
+				51FECD071E99360B006B6D42 /* KKBlurTool.m in Sources */,
+				51FECCFD1E99360B006B6D42 /* UIImage+Extension.m in Sources */,
+				51FECD131E99360B006B6D42 /* KKImageEffectTool.m in Sources */,
 				51FECC291E993508006B6D42 /* AppDelegate.m in Sources */,
+				51FECD091E99360B006B6D42 /* KKImageDrawTool.m in Sources */,
+				51FECCFE1E99360B006B6D42 /* UIView+Extension.m in Sources */,
+				51FECD101E99360B006B6D42 /* KKSpotEffect.m in Sources */,
+				51FECD501E99360B006B6D42 /* KKImageFilterTool.m in Sources */,
+				51FECD731E99360B006B6D42 /* KKImageTextTool.m in Sources */,
+				51FECD6D1E99360B006B6D42 /* KKPuzzleEditImageView.m in Sources */,
+				51FECD001E99360B006B6D42 /* LoadingIndicatorView.m in Sources */,
+				51FECD0F1E99360B006B6D42 /* KKPosterizeEffect.m in Sources */,
+				51FECD521E99360B006B6D42 /* KKPuzzImageSelectController.m in Sources */,
+				51FECD081E99360B006B6D42 /* KKImageClipTool.m in Sources */,
+				51FECD0D1E99360B006B6D42 /* KKHueEffect.m in Sources */,
+				51FECD011E99360B006B6D42 /* CircleView.m in Sources */,
+				51FECD741E99360B006B6D42 /* TextEditView.m in Sources */,
+				51FECD0A1E99360B006B6D42 /* KKBloomEffect.m in Sources */,
+				51FECD541E99360B006B6D42 /* KKPuzzleTool.m in Sources */,
+				51FECD511E99360B006B6D42 /* KKImageMosaicTool.m in Sources */,
+				51FECD041E99360B006B6D42 /* StickyHeaderFlowLayout.m in Sources */,
+				51FECD7D1E993741006B6D42 /* KKPhotoManager.m in Sources */,
 				51FECC261E993508006B6D42 /* main.m in Sources */,
+				51FECD0B1E99360B006B6D42 /* KKGloomEffect.m in Sources */,
+				51FECD721E99360B006B6D42 /* FontPickerView.m in Sources */,
+				51FECD811E993795006B6D42 /* KKNavViewController.m in Sources */,
+				51FECD6F1E99360B006B6D42 /* KKSelectImageItemView.m in Sources */,
+				51FECD791E99371E006B6D42 /* KKImageCollectionCellView.m in Sources */,
+				51FECD051E99360B006B6D42 /* KKImageEditController.m in Sources */,
+				51FECD0E1E99360B006B6D42 /* KKPixellateEffect.m in Sources */,
+				51FECD0C1E99360B006B6D42 /* KKHighlightShadowEffect.m in Sources */,
+				51FECD121E99360B006B6D42 /* KKEffectBase.m in Sources */,
+				51FECD021E99360B006B6D42 /* KKModalView.m in Sources */,
+				51FECD111E99360B006B6D42 /* KKVignetteEffect.m in Sources */,
+				51FECCFF1E99360B006B6D42 /* CommDevice.m in Sources */,
+				51FECD711E99360B006B6D42 /* ColorPickerView.m in Sources */,
+				51FECD701E99360B006B6D42 /* KKImageRotateTool.m in Sources */,
+				51FECD4F1E99360B006B6D42 /* KKEmoticonTool.m in Sources */,
+				51FECD6E1E99360B006B6D42 /* KKPuzzleStoryboardSelectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		51FECC2D1E993508006B6D42 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				51FECC2E1E993508006B6D42 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		51FECC321E993508006B6D42 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -277,6 +755,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65K8844ECS;
 				INFOPLIST_FILE = KKImageEdit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KKMusicPlayer.KKImageEdit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,6 +768,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65K8844ECS;
 				INFOPLIST_FILE = KKImageEdit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KKMusicPlayer.KKImageEdit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

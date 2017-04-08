@@ -1,0 +1,13 @@
+//
+//  WXNavViewController.h
+//  Apowersoft IOS AirMore
+//
+//  Created by wangxu on 15/3/11.
+//  Copyright (c) 2015年 Joni. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface WXNavViewController : UINavigationController
+
+@end

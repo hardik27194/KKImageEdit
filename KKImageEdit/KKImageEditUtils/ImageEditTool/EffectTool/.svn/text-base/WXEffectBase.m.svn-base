@@ -1,0 +1,33 @@
+//
+//  WXEffectBase.m
+//
+//  Created by wyj on 2015/10/23.
+//  Copyright (c) 2015年 Raysharp. All rights reserved.
+//
+
+#import "WXEffectBase.h"
+
+@implementation WXEffectBase
+
+- (id)initWithSuperView:(UIView*)superview
+{
+    self = [super init];
+    
+    if(self){
+        
+    }
+    
+    return self ;
+}
+
+- (UIImage*)applyEffect:(UIImage*)image
+{
+    return image;
+}
+
+- (void)cleanup
+{
+    
+}
+
+@end

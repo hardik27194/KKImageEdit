@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "KKImageEditController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,19 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
+    
+    UIImage *rstImage = [UIImage imageNamed:@"editImage.JPG"];
+    
+    KKImageEditController *editCtrl = [[KKImageEditController alloc]initWithNibName:@"KKImageEditController" bundle:nil originalImage:rstImage];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = editCtrl;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

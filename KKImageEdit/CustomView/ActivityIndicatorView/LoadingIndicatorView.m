@@ -1,0 +1,96 @@
+//
+//  LoadingIndicatorView.m
+//
+//  Created by finger on 16/7/8.
+//  Copyright © 2016年 finger. All rights reserved.
+//
+
+#import "LoadingIndicatorView.h"
+
+@implementation LoadingIndicatorView
+{
+    UIImageView *_bgView;
+    
+    UIView *indicatorView;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if(self){
+        [self bulidAlertView];
+    }
+    
+    return self ;
+}
+
+- (void)dealloc
+{
+    [indicatorView removeFromSuperview];
+}
+
+- (void)bulidAlertView
+{
+    CGRect screen = [[UIScreen mainScreen]bounds];
+    
+    self.frame = CGRectMake(0,0,screen.size.width,screen.size.height);
+    
+    //模糊视图
+    _bgView = [[UIImageView alloc]initWithFrame:self.frame];
+    _bgView.backgroundColor = [UIColor clearColor];
+    
+    indicatorView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, 60)];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [indicator setFrame:CGRectMake((indicatorView.frame.size.width - 50)/2, (indicatorView.frame.size.height - 50)/2, 50, 50)];
+    [indicator startAnimating];
+    [indicatorView addSubview:indicator];
+    [indicatorView.layer setCornerRadius:5];
+    [indicatorView setCenter:_bgView.center];
+    [indicatorView setBackgroundColor:[UIColor blackColor]];
+    
+    [_bgView addSubview:indicatorView];
+    
+    [self addSubview:_bgView];
+}
+
+- (void)startAnimateWithTimeOut:(NSTimeInterval)timeout
+{
+    [[[[UIApplication sharedApplication]delegate] window] addSubview:self];
+    
+    if(timeout != -1){
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:timeout];
+    }
+}
+
+- (void)dismiss
+{
+    [self removeFromSuperview];
+}
+
+- (void)resetViewWithOrientation:(NSInteger)toOrientation
+{
+    CGRect screen = [[UIScreen mainScreen]bounds];
+    if(toOrientation == UIInterfaceOrientationPortrait || toOrientation == UIInterfaceOrientationPortraitUpsideDown){
+        if(screen.size.width > screen.size.height){
+            CGFloat width = screen.size.width ;
+            screen.size.width = screen.size.height ;
+            screen.size.height = width ;
+        }
+    }else{
+        if(screen.size.width < screen.size.height){
+            CGFloat width = screen.size.width ;
+            screen.size.width = screen.size.height ;
+            screen.size.height = width ;
+        }
+    }
+    
+    self.frame = CGRectMake(0,0,screen.size.width,screen.size.height);
+    
+    //模糊视图
+    _bgView.frame = self.frame ;
+    
+    [indicatorView setCenter:_bgView.center];
+}
+
+@end

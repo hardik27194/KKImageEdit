@@ -1,0 +1,15 @@
+//
+//  WXImageEditController.h
+//  WXPhoneManagerMaster
+//
+//  Created by wangxutech on 17/2/13.
+//  Copyright © 2017年 wangxutech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface WXImageEditController : UIViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil originalImage:(UIImage *)image;
+
+@end

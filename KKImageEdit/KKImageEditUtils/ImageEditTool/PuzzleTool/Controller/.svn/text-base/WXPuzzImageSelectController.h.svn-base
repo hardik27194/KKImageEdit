@@ -1,0 +1,21 @@
+//
+//  WXPuzzImageSelectController.h
+//  WXPhoneManagerMaster
+//
+//  Created by wangxutech on 17/2/16.
+//  Copyright © 2017年 wangxutech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol startPuzzleImageDelegate <NSObject>
+
+- (void)startPuzzleWithImageAssets:(NSArray *)assetArray;
+
+@end
+
+@interface WXPuzzImageSelectController : UIViewController
+
+@property(nonatomic,weak)id<startPuzzleImageDelegate>delegate ;
+
+@end

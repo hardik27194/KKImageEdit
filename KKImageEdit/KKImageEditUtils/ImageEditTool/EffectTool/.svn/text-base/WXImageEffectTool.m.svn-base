@@ -1,0 +1,241 @@
+//
+//  EffectTool.m
+//
+//  Created by wyj on 2015/10/23.
+//  Copyright (c) 2015年 Raysharp. All rights reserved.
+//
+
+#import "WXImageEffectTool.h"
+#import "UIView+Extension.h"
+#import "UIImage+Extension.h"
+#import "WXImageEditToolItem.h"
+#import "AppSetting.h"
+
+typedef void(^applyBlock)(UIImage *image);
+
+@interface WXImageEffectTool()<WXEffectDelegate,WXImageEditToolItemDelegate>
+{
+    UIView *superView ;
+    UIScrollView *menuScrollView;
+    
+    UIImage *originalImage;
+    UIImage *thumbnailImage;
+    
+    CGRect imageViewFrame ;
+    
+    applyBlock _applyBlock ;
+    
+    WXImageEditToolItem *lastItem ;
+}
+
+@property(nonatomic)NSArray *effectArray ;
+
+@end
+
+@implementation WXImageEffectTool
+{
+    WXEffectBase *effectBase ;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if(self){
+        
+        self.effectArray = @[
+                             @{@"name":@"WXEffectBase",@"title":@"无"},
+                             @{@"name":@"WXBloomEffect",@"title":@"Bloom"},
+                             @{@"name":@"WXGloomEffect",@"title":@"阴影"},
+                             @{@"name":@"WXPosterizeEffect",@"title":@"色调分离"},
+                             @{@"name":@"WXPixellateEffect",@"title":@"像素化"},
+                             @{@"name":@"WXSpotEffect",@"title":@"聚光"},
+                             @{@"name":@"WXHueEffect",@"title":@"色相"},
+                             @{@"name":@"WXHighlightShadowEffect",@"title":@"高亮"},
+                             @{@"name":@"WXVignetteEffect",@"title":@"晕影"},
+                             ];
+        
+    }
+    
+    return self ;
+}
+
+- (void)setupWithSuperView:(UIView *)view imageViewFrame:(CGRect)frame menuView:(UIView *)menuView image:(UIImage *)image applyBlock:(void (^)(UIImage *))applyBlock
+{
+    superView = view ;
+    imageViewFrame = frame ;
+    originalImage = image ;
+    
+    _applyBlock = [applyBlock copy];
+    
+    CGFloat imageW = originalImage.size.width;
+    CGFloat imageH = originalImage.size.height;
+    CGFloat imageViewW = imageViewFrame.size.width ;
+    CGFloat imageViewH = imageViewFrame.size.height ;
+    CGFloat rw = imageViewW / imageW ;
+    CGFloat rh = imageViewH / imageH ;
+    CGFloat r = MIN(rw,rh);
+    CGSize size = CGSizeMake(imageW * r, imageH * r);
+    thumbnailImage = [CommTools getThumbnailsFromImage:originalImage scaleSize:size];
+    
+    CGFloat x = 0;
+    CGFloat W = 50;
+    CGFloat H = menuView.height;
+    CGFloat padding = 5 ;
+    
+    UIImage *tempImage = [image scaleWithFactor:0.1 quality:0.1];
+    
+    menuScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, menuView.height, menuView.width, menuView.height)];
+    menuScrollView.backgroundColor = [UIColor blackColor];
+    [menuView addSubview:menuScrollView];
+    
+    for(NSDictionary *effectInfo in self.effectArray){
+        
+        WXImageEditToolItem *item = [[WXImageEditToolItem alloc]init];
+        item.itemTitle = [effectInfo objectForKey:@"title"];
+        item.delegate = self ;
+        item.editType = WXImageEditTypeEffect ;
+        item.editInfo = effectInfo ;
+        item.frame = CGRectMake(x, 0, W, H);
+        
+        if([[effectInfo objectForKey:@"name"]isEqualToString:@"WXEffectBase"]){
+            lastItem = item ;
+            lastItem.selected = YES ;
+        }
+        
+        [menuScrollView addSubview:item];
+        
+        x += (W + padding);
+    }
+    
+    menuScrollView.contentSize = CGSizeMake(MAX(x, menuScrollView.frame.size.width+1), 0);
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [menuScrollView setFrame:menuView.bounds];
+    }];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        for(UIView *view in menuScrollView.subviews){
+            
+            if([view isKindOfClass:[WXImageEditToolItem class]]){
+                
+                WXImageEditToolItem *item = (WXImageEditToolItem *)view ;
+                
+                NSDictionary *editInfo = [item editInfo];
+                NSString *effectName = [editInfo objectForKey:@"name"];
+                
+                WXEffectBase *baseClass = [self getEffectWithEffectName:effectName];
+                
+                UIImage *effectImage = [baseClass applyEffect:tempImage];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [item setItemImage:effectImage];
+                });
+                
+            }
+        }
+        
+    });
+}
+
+- (void)cleanup
+{
+    [menuScrollView removeFromSuperview];
+    
+    [effectBase cleanup];
+}
+
+#pragma mark -- 根据效果名称初始化效果类
+
+- (WXEffectBase *)getEffectWithEffectName:(NSString *)effectName
+{
+    WXEffectBase *base = nil ;
+    Class class = NSClassFromString(effectName);
+    if(class){
+        base = [[class alloc]init];
+    }
+    
+    return base ;
+}
+
+- (void)setEffectWithName:(NSString *)effectName superView:(UIView*)superview
+{
+    [effectBase cleanup];
+    [effectBase setDelegate:nil];
+    
+    Class class = NSClassFromString(effectName);
+    if(class){
+        effectBase = [[class alloc]initWithSuperView:superview];
+    }
+    
+    [effectBase setDelegate:self];
+}
+
+- (UIImage*)applyEffect:(UIImage*)image
+{
+    return [effectBase applyEffect:image];
+}
+
+#pragma mark -- WXEffectDelegate
+
+- (void)effectParameterDidChange:(WXEffectBase *)effect
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        UIImage *rstImage = [self applyEffect:thumbnailImage];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(_applyBlock){
+                _applyBlock(rstImage);
+            }
+        });
+        
+    });
+}
+
+#pragma mark -- WXImageEditToolItemDelegate
+
+- (void)imageEditItem:(WXImageEditToolItem *)item clickItemWithType:(WXImageEditType)editType editInfo:(NSDictionary *)editInfo
+{
+    if(item.selected){
+        return ;
+    }
+    
+    lastItem.selected = NO ;
+    lastItem = item ;
+    lastItem.selected = YES ;
+    
+    NSString *effectName = [editInfo objectForKey:@"name"];
+    
+    [self setEffectWithName:effectName superView:superView];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        UIImage *rstImage = [self applyEffect:thumbnailImage];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(_applyBlock){
+                _applyBlock(rstImage);
+            }
+        });
+        
+    });
+    
+}
+
+#pragma mark -- 生成结果图
+
+- (void)effectImage:(UIImage*)image block:(void (^)(UIImage *))block
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        UIImage *effectImage = [self applyEffect:image];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(block){
+                block(effectImage);
+            }
+        });
+    });
+}
+
+@end
